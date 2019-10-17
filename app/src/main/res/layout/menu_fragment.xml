@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".menu">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/menuTvTitleID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:text="@string/tv_menu_title"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnMenuNewGameID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:text="@string/btn_menu_newgame"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/menuTvTitleID" />
+
+        <Button
+            android:id="@+id/btnMenuContinueID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
+            android:text="@string/btn_menu_continue"
+            app:layout_constraintEnd_toEndOf="@+id/btnMenuNewGameID"
+            app:layout_constraintStart_toStartOf="@+id/btnMenuNewGameID"
+            app:layout_constraintTop_toBottomOf="@+id/btnMenuNewGameID" />
+
+        <Button
+            android:id="@+id/btnMenuAboutID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
+            android:text="@string/btn_menu_about"
+            app:layout_constraintEnd_toEndOf="@+id/btnMenuContinueID"
+            app:layout_constraintStart_toStartOf="@+id/btnMenuContinueID"
+            app:layout_constraintTop_toBottomOf="@+id/btnMenuContinueID" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

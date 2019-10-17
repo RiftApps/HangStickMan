@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">HangMan</string>
+    <string name="tv_menu_title">Hang the StickMan</string>
+    <string name="btn_menu_newgame">New Game</string>
+    <string name="btn_menu_continue">Continue</string>
+    <string name="btn_menu_about">About</string>
+</resources>
