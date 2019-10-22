@@ -1,36 +1,35 @@
 package se.iteda.hangman;
 
-import android.net.Uri;
 import android.os.Bundle;
-import android.view.MenuItem;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
-import com.google.android.material.navigation.NavigationView;
-
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, GameFragment.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        MenuFragment menuFragment = new MenuFragment();
+        FragmentManager fmStart = getSupportFragmentManager();
+        FragmentTransaction fmTrans = fmStart.beginTransaction();
+        fmTrans.add(R.id.fragmentContainerID, menuFragment);
+        fmTrans.commitAllowingStateLoss();
+
 
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        return false;
-    }
+    public void addFragment(Fragment fragment, boolean addToBackStack, String tag) {
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction ft = manager.beginTransaction();
 
-
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
-    }
-
-    @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
-
+        if (addToBackStack) {
+            ft.addToBackStack(tag);
+        }
+        ft.replace(R.id.fragmentContainerID, fragment, tag);
+        ft.commitAllowingStateLoss();
     }
 }
