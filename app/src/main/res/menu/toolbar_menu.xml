@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/playButtonGroupID">
+        <item
+            android:id="@+id/action_play"
+            android:icon="@drawable/ic_media_play_light"
+            android:title="Test"
+            app:showAsAction="ifRoom" />
+    </group>
+
+    <group android:id="@+id/aboutButtonGroupID">
+        <item
+            android:id="@+id/action_about"
+            android:icon="@drawable/ic_info_24px"
+            android:title="Test"
+            app:showAsAction="ifRoom" />
+    </group>
+</menu>
