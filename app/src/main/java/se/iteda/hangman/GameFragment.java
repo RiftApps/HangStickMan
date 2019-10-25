@@ -1,8 +1,5 @@
 package se.iteda.hangman;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -11,19 +8,16 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
@@ -64,14 +58,39 @@ public class GameFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_game, container, false);
+
+
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         Toolbar mToolbar = view.findViewById(R.id.toolbarID);
         ((MainActivity)getActivity()).setSupportActionBar(mToolbar);
-        mToolbar.setTitle("Playing le game");
+        mToolbar.setTitle(R.string.title_game);
         ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        final String IMAGE_START = "https://raw.githubusercontent.com/RiftApps/HangStickMan/master/app/src/main/res/drawable-v24/tom.png";
+        final String IMAGE_FIRST = "https://raw.githubusercontent.com/RiftApps/HangStickMan/master/app/src/main/res/drawable-v24/img1.png";
+        final String IMAGE_SECOND = "https://raw.githubusercontent.com/RiftApps/HangStickMan/master/app/src/main/res/drawable-v24/img2.png";
+        final String IMAGE_THIRD = "https://raw.githubusercontent.com/RiftApps/HangStickMan/master/app/src/main/res/drawable-v24/img3.png";
+        final String IMAGE_FOURTH = "https://raw.githubusercontent.com/RiftApps/HangStickMan/master/app/src/main/res/drawable-v24/img4.png";
+        final String IMAGE_FIFTH = "https://raw.githubusercontent.com/RiftApps/HangStickMan/master/app/src/main/res/drawable-v24/img5.png";
+        final String IMAGE_DEAD = "https://raw.githubusercontent.com/RiftApps/HangStickMan/master/app/src/main/res/drawable-v24/img6.png";
+
+
+        ImageView imageFirst = view.findViewById(R.id.imgFirsErrorID);
+        ImageView imageSecond = view.findViewById(R.id.imgSecondErrorID);
+        ImageView imageThird = view.findViewById(R.id.imgThirdErrorID);
+        ImageView imageFouth = view.findViewById(R.id.imgFourthErrorID);
+        ImageView imageFifth = view.findViewById(R.id.imgFifthErrorID);
+        ImageView imageDead = view.findViewById(R.id.imgDeadErrorID);
+
+        //downloadAndSetImage(IMAGE_FIRST, imageFirst);
+        //downloadAndSetImage(IMAGE_SECOND, imageSecond);
+        //downloadAndSetImage(IMAGE_THIRD, imageThird);
+        //downloadAndSetImage(IMAGE_FOURTH, imageFouth);
+        //downloadAndSetImage(IMAGE_FIFTH, imageFifth);
+        //downloadAndSetImage(IMAGE_DEAD, imageDead);
 
         wordsList = new ArrayList<>();
         Button resetButton = view.findViewById(R.id.btnResetID);
@@ -80,23 +99,7 @@ public class GameFragment extends Fragment {
         lettersTriedTv = view.findViewById(R.id.tvLettersGuessedID);
         tvTriesLeft = view.findViewById(R.id.tvTriesLeftID);
 
-        final String IMAGE_START = "app/src/main/res/drawable-v24/tom.png";
-        final String IMAGE_FIRST = "";
-        final String IMAGE_SECOND = "";
-        final String IMAGE_THIRD = "";
-        final String IMAGE_FOURTH = "";
-        final String IMAGE_FIFTH = "";
-        final String IMAGE_DEAD = "";
 
-        ImageView imageStart = view.findViewById(R.id.imgVHangManID);
-        ImageView imageFirst = view.findViewById(R.id.imgFirsErrorID);
-        ImageView imageSecond = view.findViewById(R.id.imgSecondErrorID);
-        ImageView imageThird = view.findViewById(R.id.imgThirdErrorID);
-        ImageView imageFouth = view.findViewById(R.id.imgFourthErrorID);
-        ImageView imageFifth = view.findViewById(R.id.imgFifthErrorID);
-        ImageView imageDead = view.findViewById(R.id.imgDeadErrorID);
-
-        downloadAndSetImage(IMAGE_START, imageStart);
         readWords();
         initializeGame();
 
@@ -259,13 +262,15 @@ public class GameFragment extends Fragment {
         tvWord.setText(formattedString);
     }
 
-    private void downloadAndSetImage(String imageUrl, ImageView image) {
-        Picasso.get().load(imageUrl).into(image);
-    }
-
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         if (menu != null) {
             menu.setGroupVisible(R.id.playButtonGroupID, false);
         }
     }
+
+    private void downloadAndSetImage(String imageUrl, ImageView image) {
+        Picasso.get().load(imageUrl).fit().into(image);
+    }
+
+
 }

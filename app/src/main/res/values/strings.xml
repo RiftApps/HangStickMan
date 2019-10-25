@@ -5,6 +5,9 @@
     <string name="btn_menu_continue">Continue</string>
     <string name="btn_menu_about">About</string>
 
+    <string name="title_about">About</string>
+    <string name="title_game">Playing Le Game</string>
+
     <string name="text_welcome">Welcome to hang the stickman, can you guess the word?</string>
     <string name="text_about">Made by Timmy</string>
     <string name="hint_input_letter">Type a letter here</string>

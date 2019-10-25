@@ -9,4 +9,6 @@
     <string name="hint_input_letter">Skriv en bokstav här</string>
     <string name="text_welcome">Välkommen till hang the stickman, kan du gissa ordet?</string>
     <string name="text_about">Gjord av Timmy</string>
+    <string name="title_about">Om</string>
+    <string name="title_game">Spelar spelet</string>
 </resources>

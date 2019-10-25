@@ -39,7 +39,7 @@ public class AboutFragment extends Fragment {
         Toolbar mToolbar = view.findViewById(R.id.toolbarID);
         ((MainActivity)getActivity()).setSupportActionBar(mToolbar);
 
-        mToolbar.setTitle("About");
+        mToolbar.setTitle(R.string.title_about);
 
         ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
