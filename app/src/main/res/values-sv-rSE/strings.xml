@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HangMan</string>
+    <string name="btn_menu_about">Om</string>
+    <string name="btn_menu_continue">Fortsätt</string>
+    <string name="btn_menu_newgame">Ny Omgång</string>
+    <string name="hello_blank_fragment">Hej hej</string>
+    <string name="tv_menu_title">Hang the StickMan</string>
+    <string name="hint_input_letter">Skriv en bokstav här</string>
+    <string name="text_welcome">Välkommen till hang the stickman, kan du gissa ordet?</string>
+    <string name="text_about">Gjord av Timmy</string>
+</resources>
