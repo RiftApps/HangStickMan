@@ -10,7 +10,7 @@
 
     <string name="text_welcome">Welcome to hang the stickman, can you guess the word?</string>
     <string name="text_about">Made by Timmy</string>
-    <string name="hint_input_letter">Type a letter here</string>
+    <string name="hint_input_letter">Type a letter</string>
 
     <string name="game_letters_tried">Letters tried: </string>
     <string name="game_win">You Won!!</string>

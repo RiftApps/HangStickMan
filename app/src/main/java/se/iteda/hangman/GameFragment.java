@@ -1,12 +1,12 @@
 package se.iteda.hangman;
 
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -73,6 +73,7 @@ public class GameFragment extends Fragment {
 
         wordsList = new ArrayList<>();
         Button resetButton = view.findViewById(R.id.btnResetID);
+        Button guessButton = view.findViewById(R.id.btnGuessID);
         tvWord = view.findViewById(R.id.tvWordID);
         edtTxtInput = view.findViewById(R.id.playerInputID);
         lettersTriedTv = view.findViewById(R.id.tvLettersGuessedID);
@@ -88,30 +89,23 @@ public class GameFragment extends Fragment {
             }
         });
 
-        edtTxtInput.addTextChangedListener(new TextWatcher() {
+        guessButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            public void onClick(View v) {
+                CharSequence charSequence = edtTxtInput.getText();
                 //If the field is ! null
-                if (s.length() != 0) {
-                    checkIfLetterIsInWord(s.charAt(0));
+                if (charSequence.length() != 0) {
+                    checkIfLetterIsInWord(charSequence.charAt(0));
                 }
-                edtTxtInput.getText().clear();
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
+                else {
+                    Toast.makeText(getActivity(), "You myst lkjsdf", Toast.LENGTH_SHORT).show();
+                }
             }
         });
-
     }
 
     private void resetGame(View v) {
+        TextView winText = getView().findViewById(R.id.tvWinMessageID);
         ImageView imageFirst = getView().findViewById(R.id.imgFirsErrorID);
         ImageView imageSecond = getView().findViewById(R.id.imgSecondErrorID);
         ImageView imageThird = getView().findViewById(R.id.imgThirdErrorID);
@@ -119,6 +113,7 @@ public class GameFragment extends Fragment {
         ImageView imageFifth = getView().findViewById(R.id.imgFifthErrorID);
         ImageView imageDead = getView().findViewById(R.id.imgDeadErrorID);
 
+        winText.setVisibility(View.INVISIBLE);
         imageFirst.setVisibility(View.INVISIBLE);
         imageSecond.setVisibility(View.INVISIBLE);
         imageThird.setVisibility(View.INVISIBLE);
@@ -139,6 +134,8 @@ public class GameFragment extends Fragment {
                 //Player won
                 if (!wordDisplay.contains("_")) {
                     tvTriesLeft.setText(WINNING_MESSAGE);
+                    edtTxtInput.setEnabled(false);
+                    setStateText(getString(R.string.game_win));
                 }
             }
         }
@@ -149,6 +146,7 @@ public class GameFragment extends Fragment {
                 tvTriesLeft.setText(LOSING_MESSAGE);
                 tvWord.setText(word);
                 edtTxtInput.setEnabled(false);
+                setStateText(getString(R.string.game_lose));
             }
         }
 
@@ -158,6 +156,34 @@ public class GameFragment extends Fragment {
             String messageToBeDisplayed = MESSAGE_WITH_LETTERS_TRIED + lettersTried;
             lettersTriedTv.setText(messageToBeDisplayed);
         }
+
+    }
+
+    private void setStateText(String text) {
+        TextView winText = getView().findViewById(R.id.tvWinMessageID);
+        //Set text to win or lose text
+        winText.setText(text);
+
+        //Set the color after win or lose
+        if (text.equals(getString(R.string.game_lose))) {
+            winText.setTextColor(getResources().getColor(R.color.colorTextLose));
+        }
+        else {
+            winText.setTextColor(getResources().getColor(R.color.colorTextWin));
+        }
+
+        //Set the text visible and start scaleanimation
+        winText.setVisibility(View.VISIBLE);
+        ObjectAnimator scaleDown = ObjectAnimator.ofPropertyValuesHolder(
+                winText,
+                PropertyValuesHolder.ofFloat("scaleX", 1.2f),
+                PropertyValuesHolder.ofFloat("scaleY", 1.2f));
+        scaleDown.setDuration(310);
+
+        scaleDown.setRepeatCount(ObjectAnimator.INFINITE);
+        scaleDown.setRepeatMode(ObjectAnimator.REVERSE);
+
+        scaleDown.start();
     }
 
     private void decreaseAndDisplayTriesLeft() {
@@ -299,10 +325,8 @@ public class GameFragment extends Fragment {
         tvWord.setText(formattedString);
     }
 
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        if (menu != null) {
-            menu.setGroupVisible(R.id.playButtonGroupID, false);
-        }
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        menu.setGroupVisible(R.id.playButtonGroupID, false);
     }
 
     private void downloadAndSetImage(String imageUrl, ImageView image) {

@@ -5,4 +5,6 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorGameBackgroundSky">#6CECFF</color>
     <color name="colorGameBackgroundHill">#41DA00</color>
+    <color name="colorTextWin">#FFB700</color>
+    <color name="colorTextLose">#B40000</color>
 </resources>

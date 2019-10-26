@@ -44,11 +44,9 @@ public class AboutFragment extends Fragment {
         ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        if (menu != null) {
-            menu.setGroupVisible(R.id.playButtonGroupID, false);
-            menu.setGroupVisible(R.id.aboutButtonGroupID, false);
-        }
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        menu.setGroupVisible(R.id.playButtonGroupID, false);
+        menu.setGroupVisible(R.id.aboutButtonGroupID, false);
     }
 
 }

@@ -170,7 +170,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="@+id/playerInputID"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.085"
+                app:layout_constraintHorizontal_bias="0.005"
                 app:layout_constraintStart_toStartOf="@+id/tvTriesLeftTitleID" />
 
             <Button
@@ -182,6 +182,32 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/imgVHillID" />
+
+            <TextView
+                android:id="@+id/tvWinMessageID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:rotation="335"
+                android:text="@string/game_win"
+                android:textColor="@color/colorTextWin"
+                android:textSize="40sp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.51"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.414" />
+
+            <Button
+                android:id="@+id/btnGuessID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Guess"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/playerInputID"
+                app:layout_constraintStart_toStartOf="@+id/playerInputID"
+                app:layout_constraintTop_toBottomOf="@+id/playerInputID" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
