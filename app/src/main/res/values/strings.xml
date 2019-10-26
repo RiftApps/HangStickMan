@@ -24,4 +24,6 @@
     <string name="img_descr_hanman_left_leg">Left leg is also hanging</string>
     <string name="img_descr_hanman_right_leg">Whole man is hanging</string>
     <string name="tv_game_tries_left">Tries Left</string>
+    <string name="btn_game_guess">Guess</string>
+    <string name="toast_game_input_empty">You must enter a character</string>
 </resources>

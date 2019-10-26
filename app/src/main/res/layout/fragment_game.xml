@@ -203,7 +203,7 @@
                 android:id="@+id/btnGuessID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Guess"
+                android:text="@string/btn_game_guess"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/playerInputID"
                 app:layout_constraintStart_toStartOf="@+id/playerInputID"

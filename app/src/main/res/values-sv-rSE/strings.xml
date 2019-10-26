@@ -22,4 +22,6 @@
     <string name="img_descr_hanman_right_leg">Hela gubben hänger</string>
     <string name="img_descr_hill">Kulle</string>
     <string name="tv_game_tries_left">Försök Kvar</string>
+    <string name="toast_game_input_empty">Du måste skriva en bokstav</string>
+    <string name="btn_game_guess">Gissa</string>
 </resources>

@@ -98,7 +98,7 @@ public class GameFragment extends Fragment {
                     checkIfLetterIsInWord(charSequence.charAt(0));
                 }
                 else {
-                    Toast.makeText(getActivity(), "You myst lkjsdf", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), getString(R.string.toast_game_input_empty), Toast.LENGTH_SHORT).show();
                 }
             }
         });
