@@ -11,4 +11,17 @@
     <string name="text_welcome">Welcome to hang the stickman, can you guess the word?</string>
     <string name="text_about">Made by Timmy</string>
     <string name="hint_input_letter">Type a letter here</string>
+
+    <string name="game_letters_tried">Letters tried: </string>
+    <string name="game_win">You Won!!</string>
+    <string name="game_lose">You Lost!</string>
+    <string name="img_descr_hill">Hill</string>
+    <string name="img_descr_hanman_empty">HangThingy Empty</string>
+    <string name="img_descr_hanman_head">Head is hanging</string>
+    <string name="img_descr_hanman_body">The body also hanging</string>
+    <string name="img_descr_hanman_left_arm">Left arm is also hanging</string>
+    <string name="img_descr_hanman_right_arm">Right arm is also hanging</string>
+    <string name="img_descr_hanman_left_leg">Left leg is also hanging</string>
+    <string name="img_descr_hanman_right_leg">Whole man is hanging</string>
+    <string name="tv_game_tries_left">Tries Left</string>
 </resources>

@@ -26,28 +26,30 @@
                 android:id="@+id/imgVHillID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/img_descr_hill"
                 android:src="@drawable/hill"
-                app:layout_constraintBottom_toBottomOf="@+id/imgVHangManID"
-                app:layout_constraintEnd_toEndOf="@+id/imgVHangManID"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/imgVHangManID" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/imgVHangManID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/img_descr_hanman_empty"
                 android:src="@drawable/tom"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/imgFirsErrorID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/img_descr_hanman_head"
                 android:src="@drawable/img1"
                 android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -59,10 +61,11 @@
                 android:id="@+id/imgSecondErrorID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/img_descr_hanman_body"
                 android:src="@drawable/img2"
                 android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="@+id/imgVHangManID"
-                app:layout_constraintEnd_toEndOf="@+id/imgVHangManID"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -70,21 +73,23 @@
                 android:id="@+id/imgThirdErrorID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/img_descr_hanman_left_arm"
                 android:src="@drawable/img3"
                 android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="@+id/imgVHangManID"
-                app:layout_constraintEnd_toEndOf="@+id/imgVHangManID"
-                app:layout_constraintStart_toStartOf="@+id/imgVHangManID"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/imgFourthErrorID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/img_descr_hanman_right_arm"
                 android:src="@drawable/img4"
                 android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/imgVHangManID"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -92,10 +97,11 @@
                 android:id="@+id/imgFifthErrorID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/img_descr_hanman_left_leg"
                 android:src="@drawable/img5"
                 android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/imgVHangManID"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -103,12 +109,14 @@
                 android:id="@+id/imgDeadErrorID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/img_descr_hanman_right_leg"
                 android:src="@drawable/img6"
                 android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintVertical_bias="0" />
 
             <TextView
                 android:id="@+id/tvLettersGuessedID"
@@ -123,11 +131,11 @@
 
             <EditText
                 android:id="@+id/playerInputID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="44dp"
                 android:layout_marginBottom="64dp"
-                android:contentDescription="@android:string/VideoView_error_text_invalid_progressive_playback"
                 android:ems="10"
+                android:autofillHints="@string/hint_input_letter"
                 android:hint="@string/hint_input_letter"
                 android:inputType="textCapCharacters"
                 android:maxLength="1"
@@ -150,7 +158,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:text="Tries Left"
+                android:text="@string/tv_game_tries_left"
                 app:layout_constraintBottom_toTopOf="@+id/tvTriesLeftID"
                 app:layout_constraintEnd_toStartOf="@+id/playerInputID"
                 app:layout_constraintHorizontal_bias="0.66"
@@ -162,13 +170,13 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="@+id/playerInputID"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.155"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintHorizontal_bias="0.085"
+                app:layout_constraintStart_toStartOf="@+id/tvTriesLeftTitleID" />
 
             <Button
                 android:id="@+id/btnResetID"
-                android:layout_width="64dp"
-                android:layout_height="56dp"
+                android:layout_width="61dp"
+                android:layout_height="62dp"
                 android:background="@drawable/ic_settings_backup_restore_24px"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"

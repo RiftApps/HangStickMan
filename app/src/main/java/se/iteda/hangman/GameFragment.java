@@ -1,6 +1,5 @@
 package se.iteda.hangman;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -38,11 +37,11 @@ public class GameFragment extends Fragment {
     private EditText edtTxtInput;
     private TextView lettersTriedTv;
     private String lettersTried;
-    private final String MESSAGE_WITH_LETTERS_TRIED = "Letters tried: ";
+    private String MESSAGE_WITH_LETTERS_TRIED;
     private TextView tvTriesLeft;
     private int triesLeft;
-    private final String WINNING_MESSAGE = "You won";
-    private final String LOSING_MESSAGE = "You Lost";
+    private String WINNING_MESSAGE;
+    private String LOSING_MESSAGE;
 
     public GameFragment() {
     }
@@ -59,7 +58,6 @@ public class GameFragment extends Fragment {
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_game, container, false);
 
-
     }
 
     @Override
@@ -69,28 +67,9 @@ public class GameFragment extends Fragment {
         mToolbar.setTitle(R.string.title_game);
         ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        final String IMAGE_START = "https://raw.githubusercontent.com/RiftApps/HangStickMan/master/app/src/main/res/drawable-v24/tom.png";
-        final String IMAGE_FIRST = "https://raw.githubusercontent.com/RiftApps/HangStickMan/master/app/src/main/res/drawable-v24/img1.png";
-        final String IMAGE_SECOND = "https://raw.githubusercontent.com/RiftApps/HangStickMan/master/app/src/main/res/drawable-v24/img2.png";
-        final String IMAGE_THIRD = "https://raw.githubusercontent.com/RiftApps/HangStickMan/master/app/src/main/res/drawable-v24/img3.png";
-        final String IMAGE_FOURTH = "https://raw.githubusercontent.com/RiftApps/HangStickMan/master/app/src/main/res/drawable-v24/img4.png";
-        final String IMAGE_FIFTH = "https://raw.githubusercontent.com/RiftApps/HangStickMan/master/app/src/main/res/drawable-v24/img5.png";
-        final String IMAGE_DEAD = "https://raw.githubusercontent.com/RiftApps/HangStickMan/master/app/src/main/res/drawable-v24/img6.png";
-
-
-        ImageView imageFirst = view.findViewById(R.id.imgFirsErrorID);
-        ImageView imageSecond = view.findViewById(R.id.imgSecondErrorID);
-        ImageView imageThird = view.findViewById(R.id.imgThirdErrorID);
-        ImageView imageFouth = view.findViewById(R.id.imgFourthErrorID);
-        ImageView imageFifth = view.findViewById(R.id.imgFifthErrorID);
-        ImageView imageDead = view.findViewById(R.id.imgDeadErrorID);
-
-        //downloadAndSetImage(IMAGE_FIRST, imageFirst);
-        //downloadAndSetImage(IMAGE_SECOND, imageSecond);
-        //downloadAndSetImage(IMAGE_THIRD, imageThird);
-        //downloadAndSetImage(IMAGE_FOURTH, imageFouth);
-        //downloadAndSetImage(IMAGE_FIFTH, imageFifth);
-        //downloadAndSetImage(IMAGE_DEAD, imageDead);
+        MESSAGE_WITH_LETTERS_TRIED = getString(R.string.game_letters_tried);
+        WINNING_MESSAGE = getString(R.string.game_win);
+        LOSING_MESSAGE = getString(R.string.game_lose);
 
         wordsList = new ArrayList<>();
         Button resetButton = view.findViewById(R.id.btnResetID);
@@ -99,9 +78,8 @@ public class GameFragment extends Fragment {
         lettersTriedTv = view.findViewById(R.id.tvLettersGuessedID);
         tvTriesLeft = view.findViewById(R.id.tvTriesLeftID);
 
-
         readWords();
-        initializeGame();
+        initGame();
 
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,6 +100,7 @@ public class GameFragment extends Fragment {
                 if (s.length() != 0) {
                     checkIfLetterIsInWord(s.charAt(0));
                 }
+                edtTxtInput.getText().clear();
             }
 
             @Override
@@ -129,10 +108,24 @@ public class GameFragment extends Fragment {
 
             }
         });
+
     }
 
     private void resetGame(View v) {
-        initializeGame();
+        ImageView imageFirst = getView().findViewById(R.id.imgFirsErrorID);
+        ImageView imageSecond = getView().findViewById(R.id.imgSecondErrorID);
+        ImageView imageThird = getView().findViewById(R.id.imgThirdErrorID);
+        ImageView imageFourth = getView().findViewById(R.id.imgFourthErrorID);
+        ImageView imageFifth = getView().findViewById(R.id.imgFifthErrorID);
+        ImageView imageDead = getView().findViewById(R.id.imgDeadErrorID);
+
+        imageFirst.setVisibility(View.INVISIBLE);
+        imageSecond.setVisibility(View.INVISIBLE);
+        imageThird.setVisibility(View.INVISIBLE);
+        imageFourth.setVisibility(View.INVISIBLE);
+        imageFifth.setVisibility(View.INVISIBLE);
+        imageDead.setVisibility(View.INVISIBLE);
+        initGame();
         edtTxtInput.setEnabled(true);
     }
 
@@ -168,11 +161,49 @@ public class GameFragment extends Fragment {
     }
 
     private void decreaseAndDisplayTriesLeft() {
+        final String IMAGE_FIRST = "https://raw.githubusercontent.com/RiftApps/HangStickMan/master/app/src/main/res/drawable-v24/img1.png";
+        final String IMAGE_SECOND = "https://raw.githubusercontent.com/RiftApps/HangStickMan/master/app/src/main/res/drawable-v24/img2.png";
+        final String IMAGE_THIRD = "https://raw.githubusercontent.com/RiftApps/HangStickMan/master/app/src/main/res/drawable-v24/img3.png";
+        final String IMAGE_FOURTH = "https://raw.githubusercontent.com/RiftApps/HangStickMan/master/app/src/main/res/drawable-v24/img4.png";
+        final String IMAGE_FIFTH = "https://raw.githubusercontent.com/RiftApps/HangStickMan/master/app/src/main/res/drawable-v24/img5.png";
+        final String IMAGE_DEAD = "https://raw.githubusercontent.com/RiftApps/HangStickMan/master/app/src/main/res/drawable-v24/img6.png";
+
+        ImageView imageFirst = getView().findViewById(R.id.imgFirsErrorID);
+        ImageView imageSecond = getView().findViewById(R.id.imgSecondErrorID);
+        ImageView imageThird = getView().findViewById(R.id.imgThirdErrorID);
+        ImageView imageFourth = getView().findViewById(R.id.imgFourthErrorID);
+        ImageView imageFifth = getView().findViewById(R.id.imgFifthErrorID);
+        ImageView imageDead = getView().findViewById(R.id.imgDeadErrorID);
+
         if (triesLeft > 0) {
             triesLeft--;
             tvTriesLeft.setText(String.valueOf(triesLeft));
-            //TODO add images in switch to set visuals
-
+            switch (triesLeft) {
+                case 5:
+                    imageFirst.setVisibility(View.VISIBLE);
+                    downloadAndSetImage(IMAGE_FIRST, imageFirst);
+                    break;
+                case 4:
+                    imageSecond.setVisibility(View.VISIBLE);
+                    downloadAndSetImage(IMAGE_SECOND, imageSecond);
+                    break;
+                case 3:
+                    imageThird.setVisibility(View.VISIBLE);
+                    downloadAndSetImage(IMAGE_THIRD, imageThird);
+                    break;
+                case 2:
+                    imageFourth.setVisibility(View.VISIBLE);
+                    downloadAndSetImage(IMAGE_FOURTH, imageFourth);
+                    break;
+                case 1:
+                    imageFifth.setVisibility(View.VISIBLE);
+                    downloadAndSetImage(IMAGE_FIFTH, imageFifth);
+                    break;
+                case 0:
+                    imageDead.setVisibility(View.VISIBLE);
+                    downloadAndSetImage(IMAGE_DEAD, imageDead);
+                    break;
+            }
         }
     }
 
@@ -211,7 +242,13 @@ public class GameFragment extends Fragment {
         }
     }
 
-    private void initializeGame() {
+    private void initGame() {
+        //Download and set emtpy hanger image
+        final String IMAGE_START = "https://raw.githubusercontent.com/RiftApps/HangStickMan/master/app/src/main/res/drawable-v24/tom.png";
+        ImageView imageStart = getView().findViewById(R.id.imgVHangManID);
+        imageStart.setVisibility(View.VISIBLE);
+        downloadAndSetImage(IMAGE_START, imageStart);
+
         //Shuffle, get a word, set the word and remove the word from the list
         Collections.shuffle(wordsList);
         word = wordsList.get(0);

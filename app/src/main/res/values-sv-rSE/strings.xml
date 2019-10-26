@@ -4,11 +4,22 @@
     <string name="btn_menu_about">Om</string>
     <string name="btn_menu_continue">Fortsätt</string>
     <string name="btn_menu_newgame">Ny Omgång</string>
-    <string name="hello_blank_fragment">Hej hej</string>
     <string name="tv_menu_title">Hang the StickMan</string>
     <string name="hint_input_letter">Skriv en bokstav här</string>
     <string name="text_welcome">Välkommen till hang the stickman, kan du gissa ordet?</string>
     <string name="text_about">Gjord av Timmy</string>
     <string name="title_about">Om</string>
     <string name="title_game">Spelar spelet</string>
+    <string name="game_letters_tried">"Bokstäver testade: "</string>
+    <string name="game_lose">Du Förlorade!</string>
+    <string name="game_win">Du Vann!!!</string>
+    <string name="img_descr_hanman_body">Kroppen hänger</string>
+    <string name="img_descr_hanman_empty">Hängaren är tom</string>
+    <string name="img_descr_hanman_head">Huvudet hänger</string>
+    <string name="img_descr_hanman_left_arm">Vänster arm hänger med</string>
+    <string name="img_descr_hanman_left_leg">Vänster ben hänger med</string>
+    <string name="img_descr_hanman_right_arm">Höger arm hänger med</string>
+    <string name="img_descr_hanman_right_leg">Hela gubben hänger</string>
+    <string name="img_descr_hill">Kulle</string>
+    <string name="tv_game_tries_left">Försök Kvar</string>
 </resources>
