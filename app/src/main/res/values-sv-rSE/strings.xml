@@ -24,4 +24,5 @@
     <string name="tv_game_tries_left">Försök Kvar</string>
     <string name="toast_game_input_empty">Du måste skriva en bokstav</string>
     <string name="btn_game_guess">Gissa</string>
+    <string name="theme_change">Byt Tema</string>
 </resources>

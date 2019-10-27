@@ -1,0 +1,9 @@
+<resources>
+    <attr name="primaryTextColor" format="reference"/>
+    <attr name="backgroundColor" format="reference"/>
+    <attr name="colorGameBackgroundSky" format="reference"/>
+    <attr name="colorGameBackgroundHill" format="reference"/>
+    <attr name="buttonBackgroundColor" format="reference"/>
+    <attr name="toolbarTitleColor" format="reference"/>
+    <attr name="colorPrimaryToolbar" format="reference"/>
+</resources>

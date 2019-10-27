@@ -2,10 +2,31 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="toolbarTitleColor">@color/black</item>
+        <item name="buttonBackgroundColor">@color/buttonBackground</item>
+        <item name="primaryTextColor">@color/primaryTextColor</item>
+        <item name="backgroundColor">@color/backgroundColor</item>
+        <item name="colorPrimaryToolbar">@color/colorPrimaryToolbar</item>
+        <item name="colorGameBackgroundSky">@color/colorGameBackgroundSky</item>
+        <item name="colorGameBackgroundHill">@color/colorGameBackgroundHill</item>
+    </style>
+
+    <style name="HalloweenTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimaryDarkmode</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkDarkmode</item>
+        <item name="colorAccent">@color/colorAccentDarkmode</item>
+        <item name="toolbarTitleColor">@color/white</item>
+        <item name="buttonBackgroundColor">@color/buttonBackgroundDarkmode</item>
+        <item name="primaryTextColor">@color/primaryTextColorDarkmode</item>
+        <item name="backgroundColor">@color/backgroundColorDarkmode</item>
+        <item name="colorPrimaryToolbar">@color/colorPrimaryToolbarDarkmode</item>
+        <item name="colorGameBackgroundSky">@color/colorGameBackgroundSkyDarkmode</item>
+        <item name="colorGameBackgroundHill">@color/colorGameBackgroundHillDarkmode</item>
     </style>
 
 </resources>
+
+

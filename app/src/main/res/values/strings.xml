@@ -26,4 +26,5 @@
     <string name="tv_game_tries_left">Tries Left</string>
     <string name="btn_game_guess">Guess</string>
     <string name="toast_game_input_empty">You must enter a character</string>
+    <string name="theme_change">Change Theme</string>
 </resources>

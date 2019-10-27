@@ -1,10 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimary">#03A9F4</color>
+    <color name="colorPrimaryDark">#106FAA</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimaryToolbar">#03A9F4</color>
+    <color name="primaryTextColor">#000</color>
+    <color name="backgroundColor">#FFF</color>
+    <color name="buttonBackground">#c4c4c4</color>
     <color name="colorGameBackgroundSky">#6CECFF</color>
     <color name="colorGameBackgroundHill">#41DA00</color>
+
     <color name="colorTextWin">#FFB700</color>
     <color name="colorTextLose">#B40000</color>
+
+    <color name="colorPrimaryDarkmode">#5A5A5A</color>
+    <color name="colorPrimaryDarkDarkmode">#1D1D1D</color>
+    <color name="colorAccentDarkmode">#C70000</color>
+    <color name="colorPrimaryToolbarDarkmode">#5A5A5A</color>
+    <color name="primaryTextColorDarkmode">#FF5722</color>
+    <color name="backgroundColorDarkmode">#1D1D1D</color>
+    <color name="buttonBackgroundDarkmode">#FF9800</color>
+    <color name="colorGameBackgroundSkyDarkmode">#024B5C</color>
+    <color name="colorGameBackgroundHillDarkmode">#41DA00</color>
+
+    <color name="white">#FFF</color>
+    <color name="black">#000</color>
 </resources>

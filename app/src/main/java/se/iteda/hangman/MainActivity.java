@@ -1,5 +1,6 @@
 package se.iteda.hangman;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,16 +14,26 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity {
+    public static final String MY_PREFS_THEME = "sharedPrefTheme";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(getTheTheme());
         setContentView(R.layout.activity_main);
 
         Toolbar mToolbar = findViewById(R.id.toolbarID);
         setSupportActionBar(mToolbar);
         Button btnNewGame = findViewById(R.id.btnMenuNewGameID);
         Button btnAbout = findViewById(R.id.btnMenuAboutID);
+        Button themeButton = findViewById(R.id.darkmodeButtonID);
+
+        themeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SetTheTheme();
+            }
+        });
 
         btnNewGame.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +66,29 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
 
         }
+    }
+
+    public void SetTheTheme() {
+        int theme = getTheTheme();
+
+        if (theme == R.style.AppTheme) {
+            SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_THEME, MODE_PRIVATE).edit();
+            editor.putInt("current_theme", R.style.HalloweenTheme);
+            editor.commit();
+            recreate();
+        }
+        else if (theme == R.style.HalloweenTheme) {
+            SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_THEME, MODE_PRIVATE).edit();
+            editor.putInt("current_theme", R.style.AppTheme);
+            editor.commit();
+            recreate();
+        }
+    }
+
+    public int getTheTheme() {
+        SharedPreferences prefs = getSharedPreferences(MY_PREFS_THEME, MODE_PRIVATE);
+        int theme = prefs.getInt("current_theme", R.style.AppTheme);
+        return theme;
     }
 
     public void addFragment(Fragment fragment, boolean addToBackStack, String tag) {

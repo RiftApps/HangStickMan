@@ -6,7 +6,8 @@
         <item
             android:id="@+id/action_play"
             android:icon="@drawable/ic_media_play_light"
-            android:title="Test"
+            android:iconTint="?attr/primaryTextColor"
+            android:title="@string/btn_menu_newgame"
             app:showAsAction="ifRoom" />
     </group>
 
@@ -14,7 +15,8 @@
         <item
             android:id="@+id/action_about"
             android:icon="@drawable/ic_info_24px"
-            android:title="Test"
+            android:iconTint="?attr/primaryTextColor"
+            android:title="@string/btn_menu_about"
             app:showAsAction="ifRoom" />
     </group>
 </menu>
